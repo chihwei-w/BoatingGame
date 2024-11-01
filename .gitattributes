@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+Assets/1/start.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/SSS/S1.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/SSS/S3.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/StartObject/start.fbx filter=lfs diff=lfs merge=lfs -text
