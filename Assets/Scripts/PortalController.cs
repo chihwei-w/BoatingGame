@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // 引用 SceneManager 所需的命名空間
+using UnityEngine.SceneManagement; // 引用 SceneManager 所需的命名空間
 
 public class PortalController : MonoBehaviour
 {

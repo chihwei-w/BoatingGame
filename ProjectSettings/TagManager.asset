@@ -11,6 +11,7 @@ TagManager:
   - PlayerController
   - NoteHitBox
   - Controller
+  - Potal
   layers:
   - Default
   - TransparentFX
