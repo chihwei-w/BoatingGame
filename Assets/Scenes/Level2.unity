@@ -2172,6 +2172,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 700858045}
     m_Modifications:
+    - target: {fileID: 3050059175000004727, guid: 6ec7606592830184dab58ad340a9483c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7447737483540704013, guid: 6ec7606592830184dab58ad340a9483c,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -2239,6 +2244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7447737484111121987, guid: 6ec7606592830184dab58ad340a9483c, type: 3}
+    - {fileID: 7447737484298081373, guid: 6ec7606592830184dab58ad340a9483c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ec7606592830184dab58ad340a9483c, type: 3}
 --- !u!1001 &8689930949464961543
 PrefabInstance:
