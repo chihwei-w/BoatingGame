@@ -13,9 +13,13 @@ public class JsonParser : MonoBehaviour
         try
         {
             noteData = JsonUtility.FromJson<NoteData>(jsonContent);
-            if (noteData == null || noteData.notes == null)
+            if (noteData == null || noteData.notes == null || noteData.notes.Count == 0)
             {
                 Debug.LogError("解析 JSON 時出現錯誤：格式錯誤或缺少數據。");
+            }
+            else
+            {
+                Debug.Log("JSON 解析成功，共有 " + noteData.notes.Count + " 個音符。");
             }
         }
         catch (System.Exception ex)

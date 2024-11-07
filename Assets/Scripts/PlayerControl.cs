@@ -9,7 +9,16 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("GoScene"))
         {
-            SceneManager.LoadScene(collision.gameObject.GetComponent<SceneInfo>().SceneName);
+            SceneInfo sceneInfo = collision.gameObject.GetComponent<SceneInfo>();
+            if (sceneInfo != null && !string.IsNullOrEmpty(sceneInfo.SceneName))
+            {
+                Debug.Log("加載場景: " + sceneInfo.SceneName);
+                SceneManager.LoadScene(sceneInfo.SceneName);
+            }
+            else
+            {
+                Debug.LogWarning("SceneInfo 組件未找到或場景名稱為空");
+            }
         }
     }
 }

@@ -9,6 +9,10 @@ public class NoteHitBox : MonoBehaviour
     void Start()
     {
         rhythmManager = FindObjectOfType<RhythmManager>();
+        if (rhythmManager == null)
+        {
+            Debug.LogError("找不到 RhythmManager，請確認場景中有此組件。");
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -17,8 +21,7 @@ public class NoteHitBox : MonoBehaviour
         if (note != null)
         {
             note.isInHitBox = true; // 標記音符已進入判定區域
-            //Debug.Log("音符已進入判定區域");
-
+            Debug.Log("音符進入判定區域: " + note.gameObject.name);
             if (rhythmManager != null)
             {
                 rhythmManager.ShowHitCue();
@@ -32,7 +35,7 @@ public class NoteHitBox : MonoBehaviour
         if (note != null)
         {
             note.isInHitBox = false; // 標記音符已離開判定區域
-            //Debug.Log("音符已離開判定區域");
+            Debug.Log("音符已離開判定區域: " + note.gameObject.name);
 
             if (rhythmManager != null)
             {

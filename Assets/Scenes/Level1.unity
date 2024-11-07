@@ -652,7 +652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239779338}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -31.8, y: 56.9, z: -226.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1140,7 +1140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &523089195
 Transform:
   m_ObjectHideFlags: 0
@@ -1149,7 +1149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523089194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3614,6 +3614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1883280880}
   - component: {fileID: 1883280882}
+  - component: {fileID: 1883280883}
   m_Layer: 0
   m_Name: RowingTriggerZone
   m_TagString: Untagged
@@ -3650,6 +3651,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1883280883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883280879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008c442de3954ca4fab19357936b0b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionButton: 1
 --- !u!4 &1917147518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7192818547691485196, guid: f39a9d103c4129b42a53567f6cd8356a,
@@ -4164,6 +4178,11 @@ PrefabInstance:
       propertyPath: noteParent
       value: 
       objectReference: {fileID: 686239176}
+    - target: {fileID: 4518668057330505505, guid: a5fe62c15820b2547957e02e5bda6fd2,
+        type: 3}
+      propertyPath: actionButton
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4518668057330505505, guid: a5fe62c15820b2547957e02e5bda6fd2,
         type: 3}
       propertyPath: hitBoxTarget

@@ -8,7 +8,7 @@ public class SettingsMenu : MonoBehaviour
     public Slider volumeSlider; // 參考音量調整的滑桿
     public GameObject settingsMenuGroup; // 參考設定選單的群組
     public AudioSource bgmSource; // 參考背景音樂的 AudioSource
-    public Button SettingsButton; // 確認按鈕
+    public Button SettingsButton; // 設定按鈕
     public Button ExitButton; // 退出按鈕
 
     private bool isSettingsOpen = false; // 用來追踪設定選單的狀態
@@ -22,18 +22,20 @@ public class SettingsMenu : MonoBehaviour
             float savedVolume = PlayerPrefs.GetFloat("volume");
             bgmSource.volume = Mathf.Lerp(minVolume, 1f, savedVolume);
             volumeSlider.value = savedVolume; // 更新滑桿的值
+            Debug.Log("音量加載完成，當前音量: " + savedVolume);
         }
         else
         {
             bgmSource.volume = 1f; // 默認最大音量
+            Debug.Log("音量設置未找到，使用默認音量。");
         }
 
         // 開始時隱藏設定選單
         settingsMenuGroup.SetActive(false);
 
-        // 綁定確認按鈕的點擊事件
+        // 綁定按鈕事件
         SettingsButton.onClick.AddListener(OnConfirmButtonClicked);
-        ExitButton.onClick.AddListener(OnExitButtonClicked); //退出按鈕的點擊事件
+        ExitButton.onClick.AddListener(OnExitButtonClicked);
     }
 
     void Update()
@@ -59,10 +61,10 @@ public class SettingsMenu : MonoBehaviour
     // 調整音量的自定義方法
     void AdjustVolume(float input)
     {
-        // 根據控制器的輸入值增減滑桿的值
         float newVolume = Mathf.Clamp(volumeSlider.value + input * 0.01f, 0f, 1f);
         volumeSlider.value = newVolume;
-        SetVolume(newVolume); // 更新音量
+        SetVolume(newVolume);
+        Debug.Log("音量調整中，當前音量: " + newVolume);
     }
 
     // 當滑桿值改變時，設置背景音樂音量並保存
@@ -73,7 +75,7 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.Save(); // 強制保存 PlayerPrefs
     }
 
-    // 當確認按鈕或 Y 鍵點擊時打開或關閉設定選單
+    // 當確認按鈕點擊時打開或關閉設定選單
     void OnConfirmButtonClicked()
     {
         isSettingsOpen = !isSettingsOpen;
@@ -81,7 +83,7 @@ public class SettingsMenu : MonoBehaviour
         Debug.Log("設定選單已" + (isSettingsOpen ? "打開" : "關閉"));
     }
 
-    // 當退出按鈕或 X 鍵點擊時退出遊戲
+    // 當退出按鈕點擊時退出遊戲
     void OnExitButtonClicked()
     {
         Debug.Log("退出遊戲");

@@ -18,9 +18,10 @@ public class RhythmNote : MonoBehaviour
     {
         startPosition = transform.position; // 紀錄音符的初始生成位置
         targetPosition = target; // 紀錄音符的目標位置
-        travelTime = time*1.5f; // 設定音符需要的移動時間
+        travelTime = time * 1.5f; // 設定音符需要的移動時間
         spawnTime = Time.time; // 紀錄生成時的時間
         isHit = false; // 初始化為未被打擊狀態
+        Debug.Log("音符已生成，目標位置設置為: " + targetPosition);
     }
 
     void Update()
@@ -32,9 +33,17 @@ public class RhythmNote : MonoBehaviour
         float smoothStep = Mathf.SmoothStep(0, 1, elapsedTime);
         transform.position = Vector3.Lerp(startPosition, targetPosition, smoothStep);
 
+        // 當音符到達目標點且未被打擊時，觸發 onMissed 回調
         if (elapsedTime >= 1f && !isHit)
         {
-            onMissed?.Invoke();
+            if (onMissed != null)
+            {
+                onMissed.Invoke();
+            }
+            else
+            {
+                Debug.LogWarning("onMissed 回調未設置或為空");
+            }
             Destroy(gameObject); // 音符到達目標點後銷毀
         }
     }
@@ -42,8 +51,12 @@ public class RhythmNote : MonoBehaviour
     // 當音符被打擊時調用
     public void Hit()
     {
-        isHit = true; // 設定音符為已被打擊
-        Destroy(gameObject); // 被打擊後立即銷毀音符
+        if (!isHit)
+        {
+            isHit = true; // 設定音符為已被打擊
+            Debug.Log("音符已被打擊，銷毀音符: " + gameObject.name);
+            Destroy(gameObject); // 被打擊後立即銷毀音符
+        }
     }
 
     // 獲取音符與當前音樂時間的差異
