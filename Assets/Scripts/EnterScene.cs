@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerControl : MonoBehaviour
+public class EnterScene : MonoBehaviour
 {
     public void OnCollisionEnter(Collision collision)
     {

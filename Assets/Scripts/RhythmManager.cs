@@ -259,7 +259,7 @@ public class RhythmManager : MonoBehaviour
     IEnumerator ReturnToLevelSelectScene()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Level05");
+        SceneManager.LoadScene("Level1");
     }
 
     void StartNewLevel(int levelIndex)
